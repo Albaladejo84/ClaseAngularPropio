@@ -40,9 +40,9 @@ export class ContactsComponent implements OnInit {
   }
 
   public saveContact() {
-    this.contacts.push({ ...this.contact });
-    this.numContacts = this.contacts.length;
-   }
+ this.contacts.push({ ...this.contact });
+ this.numContacts = this.contacts.length;
+}
   public deleteContact(contact: Contact) {
     this.contacts = this.contacts.filter(c => c.name !== contact.name);
     this.numContacts = this.contacts.length;
