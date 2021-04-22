@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-3   mt-3">{{propietario.nombre | titlecase}} </div>
+  <div class="col-2  mt-3"> {{propietario.apellido1 | titlecase}}</div>
+  <div class="col-2  mt-3">{{propietario.mail|lowercase}}</div>
+  <div class="col-1"></div>
+  <div class="col-2"> <button  type="button"
+    name="editar"
+    [routerLink]="['/propietarios/formulario', propietario.id]"
+    routerLinkActive="router-link-active"
+    class="btn">Editar</button></div>
+    <div class="col-2">
+      <button
+                    type="button"
+                    name="eliminar"
+                    (click)="delete(propietario)"
+                    class="btn btn-rounded btn-danger text-white align-middle"
+                  >
+                    Eliminar
+                  </button>
+    </div>
+
+</div>

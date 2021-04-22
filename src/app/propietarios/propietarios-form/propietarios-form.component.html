@@ -1,0 +1,136 @@
+<form #propietarioForm="ngForm">
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label >Nombre <sup class="text-danger">*</sup></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="propietario.nombre"
+        placeholder="Nombre Propietario"
+        name="propi"
+        required
+        minlength="2"
+        #propi="ngModel"
+        [ngClass]="{
+          'is-invalid': propi.invalid && (propi.dirty || propi.touched),
+          'is-valid': !propi.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="propi.invalid && (propi.dirty || propi.touched)"
+      >
+        <div *ngIf="propi.errors.required">
+          El Nombre del Cliente es obligatorio
+        </div>
+        <div *ngIf="propi.errors.minlength">
+          El Nombre del Cliente debe tener al menos 3
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <label for="validationServer02"
+        >Apellido1 <sup class="text-danger"></sup></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="propietario.apellido1"
+        placeholder="Apellido 1"
+        name="apellido1"
+        minlength="2"
+        #apellido1="ngModel"
+        [ngClass]="{
+          'is-invalid':
+            apellido1.invalid && (apellido1.dirty || apellido1.touched),
+          'is-valid': apellido1.invalid
+        }"
+      />
+    </div>
+  </div>
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label for="validationServer02"
+        >NIF <sup class="text-danger"></sup></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="propietario.nif"
+        placeholder="NIF"
+        name="nif"
+        #nif="ngModel"
+        [ngClass]="{
+          'is-invalid': nif.invalid && (nif.dirty || nif.touched),
+          'is-valid': !nif.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="nif.invalid && (nif.dirty || nif.touched)"
+      >
+        <div *ngIf="nif.errors.required">
+          El NIF del Cliente es obligatorio
+        </div>
+        <div *ngIf="nif.errors.minlength">
+          El NIF del Cliente debe tener al menos 8
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row py-2">
+    <div class="col-auto mb-2">
+      <label>Email<sup class="text-danger"></sup></label>
+        <input
+          type="email"
+          class="form-control"
+          [(ngModel)]="propietario.mail"
+          placeholder="mail"
+          name="mail"
+          minlength="3"
+          #mail="ngModel"
+          style="width: 100%;"
+          [ngClass]="{
+            'is-invalid': mail.invalid && (mail.dirty || mail.touched),
+            'is-valid': !mail.invalid
+          }"
+        />
+        <div
+          class="text-danger"
+          *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+          style="font-size: 10px;"
+        >
+          <div *ngIf="mail.errors.required">
+            El mail es obligatorio
+          </div>
+          <div *ngIf="mail.errors.minlength">
+            El mail tienen que ser al menos 3 caracteres
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="form-row justify-content-between pt-5">
+    <div class="col-lg-5 col-md-12">
+      <button
+        class="btn btn-primary"
+        role="button"
+        (click)="cargarPropietario()"
+        *ngIf="!propietario.id; else elseBlock"
+        [disabled]="!propietarioForm.form.valid"
+      >
+        Crear Propietario
+      </button>
+      <ng-template #elseBlock>
+        <button
+          class="btn btn-primary"
+          role="button"
+          (click)="actualizar()"
+          [disabled]="!propietarioForm.form.valid"
+        >
+          Editar
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</form>

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HeroesComponent } from './heroes/heroes.component';
-import { AboutModule } from './about/about.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { AboutModule } from './about/about.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    AboutModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
